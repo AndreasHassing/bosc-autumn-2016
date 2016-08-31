@@ -1,0 +1,4 @@
+test123æøå
+test	of	tabs
+
+and some more tests of  \blanks
