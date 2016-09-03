@@ -18,7 +18,7 @@ io.o: io.c io.h
 	$(CC) $(CFLAGS) -c io.c io.h
 
 # Exercise 2.2
-.PHONE: clean
+.PHONY: clean
 
 clean:
 	rm -rf *.o *.gch
