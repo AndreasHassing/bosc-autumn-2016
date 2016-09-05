@@ -1,2 +1,4 @@
 /* io.h */
-void io(void);
+#include "person.h"
+
+void io(struct Person[], int);

@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include "io.h"
 #include "data.h"
+
 int
 main ( int argc, char *argv[] )   {
-	
 	printf("Starting my job...\n");
-	io();
-        data();
-	printf("Done with my job(s?).\n");
+    struct Person people[5];
+    data(people, 5);
+	io(people, 5);
+	printf("Done with my job.\n");
         return(EXIT_SUCCESS);
 }
