@@ -6,4 +6,6 @@ struct Person {
     char gender;
 };
 
+int comp(const void *, const void *);
+
 #endif
