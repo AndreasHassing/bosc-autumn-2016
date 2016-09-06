@@ -2,16 +2,14 @@
 #include "data.h"
 
 void data(struct Person p[], int num_people) {
-    int i = 0;
+    int nth_person = 1;
 
     while (num_people-- > 0) {
-        printf("Enter person %d's gender: ", i+1);
-        scanf(" %1c", &p[i].gender);
-        printf("Enter persons %d's age: ", i+1);
-        scanf("%d", &p[i].age);
-        i++;
+        printf("Enter person %d's gender: ", nth_person);
+        scanf(" %1c", &p[nth_person-1].gender);
+        printf("Enter persons %d's age: ", nth_person);
+        scanf("%d", &p[nth_person-1].age);
+        nth_person++;
         printf("\n");
     }
-
-    printf("Done.\n");
 };
