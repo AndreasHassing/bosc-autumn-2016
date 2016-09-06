@@ -24,4 +24,4 @@ person.o: person.c person.h
 .PHONY: clean
 
 clean:
-	rm -rf *.o *.gch
+	rm -rf *.o *.gch out/
