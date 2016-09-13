@@ -1,4 +1,4 @@
-/* 
+/*
 
    Opgave 1
 
@@ -14,16 +14,31 @@
 
 #include "forback.h"
 
-/* start the program specified by filename with the arguments in argv 
+/* start the program specified by filename with the arguments in argv
    in a new process and wait for termination */
 int foregroundcmd(char *filename, char *argv[])
 {
-  return 0;
+    pid_t pid = fork();
+    if (pid == 0) {
+        // child process
+        return execvp(filename, argv);
+    } else {
+        int status;
+        wait(&status);
+        return status;
+    }
 }
 
-/* start the program specified by filename with the arguments in argv 
+/* start the program specified by filename with the arguments in argv
    in a new process */
 int backgroundcmd(char *filename, char *argv[])
 {
-  return 0;
+    pid_t pid = fork();
+    if (pid == 0) {
+        // child process
+        return execvp(filename, argv);
+    }
+
+    exit(0);
 }
+
