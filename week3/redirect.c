@@ -6,14 +6,11 @@
 
  */
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include <sys/types.h> // pid_t
+#include <fcntl.h>     // open, file permissions
 
-#include <unistd.h>
-#include <sys/wait.h>
-#include <stdlib.h>
+#include <unistd.h>    // execvp
+#include <sys/wait.h>  // wait
 
 #include "redirect.h"
 
