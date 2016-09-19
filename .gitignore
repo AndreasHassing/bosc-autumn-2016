@@ -4,6 +4,9 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 
+# Vim swap files
+*.swp
+
 # Prerequisites
 *.d
 
