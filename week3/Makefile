@@ -21,7 +21,7 @@ exercise3: pipe.o testpipe.c
 pipe.o: pipe.h pipe.c
 	$(CC) $(CFLAGS) -c pipe.h pipe.c
 
-.PHONE: clean
+.PHONY: clean
 
 clean:
 	rm -rf *.out *.o *.gch
