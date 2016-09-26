@@ -4,9 +4,9 @@
 
 int main(int argc, char *argv[]) {
     printf("Piping ls into wc -w: `ls | wc -w`\n");
-    char* ls_flags[] = {"-l", "-a"};
-    char* wc_flags[] = {"-w"};
+    char* ls_flags[] = {argv[0], "-l", "-a", NULL};
+    char* wc_flags[] = {argv[0], "-w", NULL};
 
-    pipecmd("/bin/ls", ls_flags, "/usr/bin/wc", wc_flags);
+    pipecmd("ls", ls_flags, "wc", wc_flags);
     return 0;
 }

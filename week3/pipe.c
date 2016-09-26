@@ -17,7 +17,12 @@
 
 #include "pipe.h"
 
-void runcmd(char *filename, char *argv[], int std_io_close, int fd_close, int fd_dup);
+int runcmd(char *filename, char *argv[], int std_io_close, int fd_close, int fd_dup) {
+    close(fd_close);
+    close(std_io_close);
+    dup(fd_dup);
+    return execvp(filename, argv);
+}
 
 /* create a pipe between two new processes, executing the programs
    specified by filename1 and filename2 with the arguments in argv1
@@ -44,21 +49,14 @@ int pipecmd(char *filename1, char *argv1[], char *filename2, char *argv2[])
             // Receiving child, close STDIN and fd[1] (writing end),
             // then dup fd[0] (read end) in STDIN's place and
             // then run the command
+            waitpid(p_sendr, NULL, 0);
             runcmd(filename2, argv2, STDIN_FILENO, fd[1], fd[0]);
             exit(0);
         } else {
             // Parent code
             // wait for the children to finish
-            waitpid(p_sendr, NULL, 0);
-            waitpid(p_recvr, NULL, 0);
+            wait(NULL);
             return 0;
         }
     }
-}
-
-void runcmd(char *filename, char *argv[], int std_io_close, int fd_close, int fd_dup) {
-    close(fd_close);
-    close(std_io_close);
-    dup(fd_dup);
-    execvp(filename, argv);
 }
