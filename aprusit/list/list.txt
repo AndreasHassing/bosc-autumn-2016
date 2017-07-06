@@ -1,0 +1,26 @@
+2.1)
+list_add list_remove funktioner implementeret.
+Begge tager højde for om det er den første og/eller sidste knude, som
+skal tilføjes/fjernes, for at opretholde den korrekte linked-list-orden
+
+2.2)
+Hvis vi anvender implementationen af en kædet liste fra list.c i et program,
+hvor flere tråde tilgår den samme liste, kan følgende problemer opstå:
+- Race condition i form af, at flere tråde prøver at tilgå den samme knude i
+listen.
+- I sammenhæng med ovenstående, hvis to tråde begge tilføjer en knude til listen,
+er det muligt, at den langsommeste tråd overskriver den sidste knude, sådan at
+den knude tilføjet af den første tråd "glemmes".
+- Lige såvel som ovenstående tilfælde, kan lignende forekomme ved fjernelse af
+en knude.
+
+Ovenstående er vist i "Race_condition.PNG", som illustrerer nummer to tilfælde
+beskrevet ovenfor, med race condition for list_add.
+
+2.3)
+Som beskrevet i 2.2 kan der opstå race conditions for programmet.
+En mutex lock er introduceret, der sørger for synkroniseret multitrådet
+eksekvering.
+I main.c testes  dette ved at sætte to tråde til at eksekvere test()-funktionen,
+der venter i et halvt sekund, og så tilføjer en knude. Uden en mutex lock, kunne
+dette føre til "segmentation fault", jvf. eksemplet fra 2.2.

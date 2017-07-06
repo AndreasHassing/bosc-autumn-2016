@@ -1,0 +1,47 @@
+Benchmarked on a Macbook Pro running OS X Sierra (10.12)
+2.3 GHz Intel Core i7
+8 GB 1600 MHz DDR3
+
+Multithreaded averages: `0.35 real`, `2.318 user`, `0.01 sys`.
+Single-threaded averages: `5.206 real`, `5.186 user`, `0.01 sys`.
+
+abn@Boo ~/C/a/sqrtsum> time ./sqrtsum.out 100000000
+sqrt sum = 666666671666.46
+0.35 real         2.34 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./sqrtsum.out 100000000
+sqrt sum = 666666671666.46
+0.34 real         2.21 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./sqrtsum.out 100000000
+sqrt sum = 666666671666.46
+0.35 real         2.34 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./sqrtsum.out 100000000
+sqrt sum = 666666671666.46
+0.35 real         2.36 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./sqrtsum.out 100000000
+sqrt sum = 666666671666.46
+0.35 real         2.34 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./single.out 100000000
+sqrt sum = 666666671666.57
+5.24 real         5.22 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./single.out 100000000
+sqrt sum = 666666671666.57
+5.19 real         5.17 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./single.out 100000000
+sqrt sum = 666666671666.57
+5.18 real         5.16 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./single.out 100000000
+sqrt sum = 666666671666.57
+5.20 real         5.18 user         0.01 sys
+
+abn@Boo ~/C/a/sqrtsum> time ./single.out 100000000
+sqrt sum = 666666671666.57
+5.22 real         5.20 user         0.01 sys
+
